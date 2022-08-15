@@ -1,6 +1,6 @@
-import { ErrorRequestHandler, Express } from "express";
-import { Response, Request } from "express";
-import { StatusConstants } from "../constants/StatusConstants";
+import { ErrorRequestHandler, Express } from 'express';
+import { Response, Request } from 'express';
+import { StatusConstants } from '../constants/StatusConstants';
 
 export class ErrorHandlingMiddleware {
   app: Express;
@@ -23,9 +23,13 @@ export class ErrorHandlingMiddleware {
 
   private tokeErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
     console.log(err);
-    if (err.name === "UnauthorizedError" || err.name === 'TokenExpiredError' || err.name === 'JsonWebTokenError') {
+    if (
+      err.name === 'UnauthorizedError' ||
+      err.name === 'TokenExpiredError' ||
+      err.name === 'JsonWebTokenError'
+    ) {
       res.status(StatusConstants.CODE_401).json({
-        error: "Please provide a valid token. Try again!!!",
+        error: 'Please provide a valid token. Try again!!!',
       });
     } else {
       next(err);

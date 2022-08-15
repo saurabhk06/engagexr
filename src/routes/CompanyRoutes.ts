@@ -1,15 +1,15 @@
-import { Express, Router } from "express";
-import { ApplicationConstants } from "../constants/ApplicationConstants";
+import { Express, Router } from 'express';
+import { ApplicationConstants } from '../constants/ApplicationConstants';
 import {
   createCompany,
   deleteCompanyById,
   getAllCompanies,
   getCompanyById,
   updateCompanyById,
-} from "../controllers/CompanyController";
-import { isAdmin } from "../middleware/CheckAdminMiddleware";
-import { validateToken } from "../middleware/ValidateTokenMiddlware";
-import { AbstractBaseRoute } from "./AbstractBaseRoute";
+} from '../controllers/CompanyController';
+import { isAdmin } from '../middleware/CheckAdminMiddleware';
+import { validateToken } from '../middleware/ValidateTokenMiddlware';
+import { AbstractBaseRoute } from './AbstractBaseRoute';
 
 export class CompanyRoutes extends AbstractBaseRoute {
   constructor(_app: Express, _router: Router) {
@@ -22,11 +22,21 @@ export class CompanyRoutes extends AbstractBaseRoute {
   }
 
   public async urlpaths() {
-    this.router.post("/create-company", validateToken, isAdmin, createCompany);
-    this.router.get("/companies", validateToken, getAllCompanies);
-    this.router.get("/company/:companyId", validateToken, getCompanyById);
-    this.router.patch("/company/:companyId", validateToken, isAdmin, updateCompanyById);
-    this.router.delete("/company/:companyId", validateToken, isAdmin, deleteCompanyById);
+    this.router.post('/create-company', validateToken, isAdmin, createCompany);
+    this.router.get('/companies', validateToken, getAllCompanies);
+    this.router.get('/company/:companyId', validateToken, getCompanyById);
+    this.router.patch(
+      '/company/:companyId',
+      validateToken,
+      isAdmin,
+      updateCompanyById
+    );
+    this.router.delete(
+      '/company/:companyId',
+      validateToken,
+      isAdmin,
+      deleteCompanyById
+    );
   }
 }
 

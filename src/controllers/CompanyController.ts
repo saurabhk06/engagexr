@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
-import { StatusConstants } from "../constants/StatusConstants";
-import Company from "../models/company.model";
+import { Request, Response } from 'express';
+import { StatusConstants } from '../constants/StatusConstants';
+import Company from '../models/company.model';
 
 export const createCompany = async (req: Request, res: Response) => {
   const { name, email, phone, website } = req.body;
@@ -10,7 +10,7 @@ export const createCompany = async (req: Request, res: Response) => {
     if (companyInDB) {
       return res.status(StatusConstants.CODE_400).json({
         error:
-          "Company already exists with the email id. Please try with different one.",
+          'Company already exists with the email id. Please try with different one.',
       });
     }
 
@@ -21,23 +21,23 @@ export const createCompany = async (req: Request, res: Response) => {
       ...(website && { website }),
     });
     return res.status(StatusConstants.CODE_201).json({
-      msg: "company created successfully",
+      msg: 'company created successfully',
       data: company,
     });
   } catch (err: any) {
     return res.status(StatusConstants.CODE_500).json({
-      error: "Error! Try again later.",
+      error: 'Error! Try again later.',
     });
   }
 };
 
 export const getAllCompanies = async (req: Request, res: Response) => {
-    try {
+  try {
     const companyList = await Company.findAll();
     return res.status(StatusConstants.CODE_200).json({ data: companyList });
   } catch (err) {
     return res.status(StatusConstants.CODE_500).json({
-      error: "Error! Try again later.",
+      error: 'Error! Try again later.',
     });
   }
 };
@@ -56,7 +56,7 @@ export const getCompanyById = async (req: Request, res: Response) => {
     return res.status(StatusConstants.CODE_200).json({ data: company });
   } catch (err) {
     return res.status(StatusConstants.CODE_500).json({
-      error: "Error! Try again later.",
+      error: 'Error! Try again later.',
     });
   }
 };
@@ -80,7 +80,7 @@ export const updateCompanyById = async (req: Request, res: Response) => {
       });
       if (duplicateCompany) {
         return res.status(StatusConstants.CODE_400).json({
-          error: "Email cannot be updated. Company with same email exist!!!. ",
+          error: 'Email cannot be updated. Company with same email exist!!!. ',
         });
       }
     }
@@ -94,10 +94,10 @@ export const updateCompanyById = async (req: Request, res: Response) => {
     const result = await company.save();
     return res
       .status(StatusConstants.CODE_200)
-      .json({ msg: "Company updated successfully", data: result });
+      .json({ msg: 'Company updated successfully', data: result });
   } catch (err) {
     return res.status(StatusConstants.CODE_500).json({
-      error: "Error! Try again later.",
+      error: 'Error! Try again later.',
     });
   }
 };
@@ -108,23 +108,23 @@ export const deleteCompanyById = async (req: Request, res: Response) => {
   try {
     const company = await Company.findByPk(companyId);
     if (!company) {
-        return res.status(StatusConstants.CODE_400).json({
-            error: "Company doesn't exists. Please try with valid companyId.",
-        });
+      return res.status(StatusConstants.CODE_400).json({
+        error: "Company doesn't exists. Please try with valid companyId.",
+      });
     }
-    const empCount = await company?.$count("employees");
-    if(empCount > 0) {
-        return res.status(StatusConstants.CODE_400).json({
-            error: "Employee still exist in this company!!",
-        });
+    const empCount = await company?.$count('employees');
+    if (empCount > 0) {
+      return res.status(StatusConstants.CODE_400).json({
+        error: 'Employee still exist in this company!!',
+      });
     }
     await company.destroy();
     return res
       .status(StatusConstants.CODE_200)
-      .json({ msg: "Company deleted successfully" });
+      .json({ msg: 'Company deleted successfully' });
   } catch (err) {
     return res.status(StatusConstants.CODE_500).json({
-      error: "Error! Try again later.",
+      error: 'Error! Try again later.',
     });
   }
 };

@@ -7,7 +7,7 @@ import {
   AllowNull,
   NotEmpty,
   Default,
-} from "sequelize-typescript";
+} from 'sequelize-typescript';
 
 export interface UserI {
   id?: number | null;
@@ -19,7 +19,7 @@ export interface UserI {
   encrypt_password: string;
 }
 
-@Table({ tableName: "user", timestamps: true })
+@Table({ tableName: 'user', timestamps: true })
 export default class User extends Model implements UserI {
   @AutoIncrement
   @PrimaryKey
@@ -43,7 +43,7 @@ export default class User extends Model implements UserI {
 
   @AllowNull(false)
   @NotEmpty
-  @Default("GUEST")
+  @Default('GUEST')
   @Column
   role!: string;
 

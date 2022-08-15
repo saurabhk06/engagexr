@@ -7,8 +7,8 @@ import {
   AllowNull,
   NotEmpty,
   HasMany,
-} from "sequelize-typescript";
-import Employee from "./employee.model";
+} from 'sequelize-typescript';
+import Employee from './employee.model';
 
 export interface ICompany {
   id?: number | null;
@@ -18,7 +18,7 @@ export interface ICompany {
   website: string;
 }
 
-@Table({ tableName: "company", timestamps: true })
+@Table({ tableName: 'company', timestamps: true })
 export default class Company extends Model implements ICompany {
   @AutoIncrement
   @PrimaryKey
@@ -41,6 +41,6 @@ export default class Company extends Model implements ICompany {
   @Column
   website!: string;
 
-  @HasMany(() => Employee, "cmpId")
+  @HasMany(() => Employee, 'cmpId')
   employees!: Employee[];
 }

@@ -1,7 +1,7 @@
-import { Express, Router } from "express";
-import { ApplicationConstants } from "../constants/ApplicationConstants";
-import { signin, signup } from "../controllers/AuthController";
-import { AbstractBaseRoute } from "./AbstractBaseRoute";
+import { Express, Router } from 'express';
+import { ApplicationConstants } from '../constants/ApplicationConstants';
+import { signin, signup } from '../controllers/AuthController';
+import { AbstractBaseRoute } from './AbstractBaseRoute';
 
 export class UserRoutes extends AbstractBaseRoute {
   constructor(_app: Express, _router: Router) {
@@ -14,7 +14,7 @@ export class UserRoutes extends AbstractBaseRoute {
   }
 
   public async urlpaths() {
-    this.router.post("/signup", signup);
-    this.router.post("/signin", signin);
+    this.router.post('/signup', signup);
+    this.router.post('/signin', signin);
   }
 }

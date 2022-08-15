@@ -1,4 +1,4 @@
-import { Express, Router } from "express";
+import { Express, Router } from 'express';
 import {
   createEmployee,
   deleteEmployeeById,
@@ -6,10 +6,10 @@ import {
   getEmployeeByCompanyId,
   getEmployeeById,
   updateEmployeeById,
-} from "../controllers/EmployeeController";
-import { isAdmin } from "../middleware/CheckAdminMiddleware";
-import { validateToken } from "../middleware/ValidateTokenMiddlware";
-import { AbstractBaseRoute } from "./AbstractBaseRoute";
+} from '../controllers/EmployeeController';
+import { isAdmin } from '../middleware/CheckAdminMiddleware';
+import { validateToken } from '../middleware/ValidateTokenMiddlware';
+import { AbstractBaseRoute } from './AbstractBaseRoute';
 
 export class EmployeeRoutes extends AbstractBaseRoute {
   constructor(_app: Express, _router: Router) {
@@ -22,12 +22,31 @@ export class EmployeeRoutes extends AbstractBaseRoute {
   }
 
   public async urlpaths() {
-    this.router.post("/create-employee", validateToken, isAdmin, createEmployee);
-    this.router.get("/employees", validateToken, getAllEmployees);
-    this.router.get("/employee/:employeeId", validateToken, getEmployeeById);
-    this.router.get("/company/:companyId/employees", validateToken, getEmployeeByCompanyId);
-    this.router.patch("/employee/:employeeId", validateToken, isAdmin, updateEmployeeById);
-    this.router.delete("/employee/:employeeId", validateToken, isAdmin, deleteEmployeeById);
+    this.router.post(
+      '/create-employee',
+      validateToken,
+      isAdmin,
+      createEmployee
+    );
+    this.router.get('/employees', validateToken, getAllEmployees);
+    this.router.get('/employee/:employeeId', validateToken, getEmployeeById);
+    this.router.get(
+      '/company/:companyId/employees',
+      validateToken,
+      getEmployeeByCompanyId
+    );
+    this.router.patch(
+      '/employee/:employeeId',
+      validateToken,
+      isAdmin,
+      updateEmployeeById
+    );
+    this.router.delete(
+      '/employee/:employeeId',
+      validateToken,
+      isAdmin,
+      deleteEmployeeById
+    );
   }
 }
 

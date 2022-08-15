@@ -8,8 +8,8 @@ import {
   NotEmpty,
   Unique,
   BelongsTo,
-} from "sequelize-typescript";
-import Company from "./company.model";
+} from 'sequelize-typescript';
+import Company from './company.model';
 
 export interface IEmployee {
   empId?: number | null;
@@ -20,7 +20,7 @@ export interface IEmployee {
 }
 
 @Table({
-  tableName: "employee",
+  tableName: 'employee',
   timestamps: true,
 })
 export default class Employee extends Model implements IEmployee {
@@ -48,6 +48,6 @@ export default class Employee extends Model implements IEmployee {
   @Column
   phone!: string;
 
-  @BelongsTo(() => Company, "cmpId")
+  @BelongsTo(() => Company, 'cmpId')
   company!: Company;
 }

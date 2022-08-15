@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import { StatusConstants } from "../constants/StatusConstants";
-import Company from "../models/company.model";
-import Employee from "../models/employee.model";
+import { Request, Response } from 'express';
+import { StatusConstants } from '../constants/StatusConstants';
+import Company from '../models/company.model';
+import Employee from '../models/employee.model';
 
 export const createEmployee = async (req: Request, res: Response) => {
   const { companyId, firstName, lastName, email, phone } = req.body;
@@ -17,7 +17,7 @@ export const createEmployee = async (req: Request, res: Response) => {
     const employeeInDB = await Employee.findOne({ where: { email: email } });
     if (employeeInDB) {
       return res.status(StatusConstants.CODE_400).json({
-        error: "Employee already exists with the same email id.",
+        error: 'Employee already exists with the same email id.',
       });
     }
     const employee = await Employee.create({
@@ -29,13 +29,13 @@ export const createEmployee = async (req: Request, res: Response) => {
     });
 
     return res.status(StatusConstants.CODE_201).json({
-      msg: "Employee created successfully",
+      msg: 'Employee created successfully',
       data: employee,
     });
   } catch (err) {
     return res
       .status(StatusConstants.CODE_500)
-      .json({ msg: "Error! Try after sometime." });
+      .json({ msg: 'Error! Try after sometime.' });
   }
 };
 
@@ -46,7 +46,7 @@ export const getAllEmployees = async (req: Request, res: Response) => {
   } catch (err) {
     return res
       .status(StatusConstants.CODE_500)
-      .json({ msg: "Error! Try after sometime." });
+      .json({ msg: 'Error! Try after sometime.' });
   }
 };
 
@@ -64,7 +64,7 @@ export const getEmployeeById = async (req: Request, res: Response) => {
   } catch (err) {
     return res
       .status(StatusConstants.CODE_500)
-      .json({ msg: "Error! Try after sometime." });
+      .json({ msg: 'Error! Try after sometime.' });
   }
 };
 
@@ -79,13 +79,13 @@ export const getEmployeeByCompanyId = async (req: Request, res: Response) => {
       });
     }
 
-    const employeeList = await company.$get("employees");
+    const employeeList = await company.$get('employees');
     return res.status(StatusConstants.CODE_200).json({
       data: employeeList,
     });
   } catch (err) {
     return res.status(StatusConstants.CODE_500).json({
-      error: "Error! Try again later.",
+      error: 'Error! Try again later.',
     });
   }
 };
@@ -110,7 +110,7 @@ export const updateEmployeeById = async (req: Request, res: Response) => {
       });
       if (duplicateEmployee) {
         return res.status(StatusConstants.CODE_400).json({
-          error: "Email cannot be updated. Employee with same email exist!!!. ",
+          error: 'Email cannot be updated. Employee with same email exist!!!. ',
         });
       }
     }
@@ -125,11 +125,11 @@ export const updateEmployeeById = async (req: Request, res: Response) => {
 
     return res
       .status(StatusConstants.CODE_200)
-      .json({ msg: "Employee updated successfully", data: result });
+      .json({ msg: 'Employee updated successfully', data: result });
   } catch (err) {
     return res
       .status(StatusConstants.CODE_500)
-      .json({ msg: "Error! Try after sometime." });
+      .json({ msg: 'Error! Try after sometime.' });
   }
 };
 
@@ -147,10 +147,10 @@ export const deleteEmployeeById = async (req: Request, res: Response) => {
     const result = await employee.destroy();
     return res
       .status(StatusConstants.CODE_200)
-      .json({ msg: "Employee deleted successfully", data: result });
+      .json({ msg: 'Employee deleted successfully', data: result });
   } catch (err) {
     return res
       .status(StatusConstants.CODE_500)
-      .json({ msg: "Error! Try after sometime." });
+      .json({ msg: 'Error! Try after sometime.' });
   }
 };

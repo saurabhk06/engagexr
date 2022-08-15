@@ -10,11 +10,11 @@ import { InitializeRoutes } from './InitializeRoutes';
 
 //TODO: import port from .env file(configure for prod, staging & local)
 export async function server() {
-  let app: Express = express();
-  let router: Router = express.Router();
+  const app: Express = express();
+  const router: Router = express.Router();
 
-  let host: string = ServerConfig.host;
-  let port: number = ServerConfig.port;
+  const host: string = ServerConfig.host;
+  const port: number = ServerConfig.port;
 
   //Initialize common & built in middlewares
   await InitializeMiddleware.InitializeCommonMiddleware(app);
