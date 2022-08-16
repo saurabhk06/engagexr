@@ -29,6 +29,8 @@ This project contains the backend code for the EngageXr coding assigment.
 
 - All the API reference is given in the API Reference docs. However, to ease API testing there is a POSTMAN api JSON file added in the root of the project **(/postman/engagexr-apis.postman_collection.json)** directory. Import this file in the POSTMAN application and test the API with pre-loaded data. More info about API's is given in the API Reference section.
 
+- you can find the server logs under logs folder under the root directory.
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
