@@ -1,0 +1,9 @@
+{
+    "file": {
+        "level": "info",
+        "filename": "./logs/serverlogs.log"
+    },
+    "console": {
+        "level": "debug"
+    }
+}

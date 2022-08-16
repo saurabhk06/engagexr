@@ -7,6 +7,7 @@ import * as ServerConfig from '../configs/ServerConfig.json';
 import { InitializeSequelize } from './InitializeSequelize';
 import { InitializeMiddleware } from './InitializeMiddleware';
 import { InitializeRoutes } from './InitializeRoutes';
+import { logger } from '../utils/logger';
 
 //TODO: import port from .env file(configure for prod, staging & local)
 export async function server() {
@@ -29,6 +30,6 @@ export async function server() {
   await InitializeMiddleware.InitializeErrorHandlingMiddleware(app);
 
   app.listen(port, host, () => {
-    console.log(`Server is listening at port ${port}`);
+    logger.log('info', `Server is listening at port ${port}`);
   });
 }
