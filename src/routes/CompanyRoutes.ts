@@ -1,4 +1,5 @@
 import { Express, Router } from 'express';
+import { check } from 'express-validator';
 import { ApplicationConstants } from '../constants/ApplicationConstants';
 import {
   createCompany,
@@ -8,8 +9,13 @@ import {
   updateCompanyById,
 } from '../controllers/CompanyController';
 import { isAdmin } from '../middleware/CheckAdminMiddleware';
+import { validatePayload } from '../middleware/PayloadValidationMiddleware';
 import { validateToken } from '../middleware/ValidateTokenMiddlware';
 import { logger } from '../utils/logger';
+import {
+  companyIdSanitize,
+  createCompanySanitize,
+} from '../utils/payloadSanitization';
 import { AbstractBaseRoute } from './AbstractBaseRoute';
 
 export class CompanyRoutes extends AbstractBaseRoute {
@@ -25,47 +31,38 @@ export class CompanyRoutes extends AbstractBaseRoute {
   }
 
   public async urlpaths() {
-    this.router.post('/create-company', validateToken, isAdmin, createCompany);
+    this.router.post(
+      '/create-company',
+      validateToken,
+      [check('name', 'name cannot be empty.').not().isEmpty()],
+      isAdmin,
+      createCompanySanitize,
+      validatePayload,
+      createCompany
+    );
     this.router.get('/companies', validateToken, getAllCompanies);
-    this.router.get('/company/:companyId', validateToken, getCompanyById);
+    this.router.get(
+      '/company/:companyId',
+      validateToken,
+      companyIdSanitize,
+      validatePayload,
+      getCompanyById
+    );
     this.router.patch(
       '/company/:companyId',
       validateToken,
       isAdmin,
+      companyIdSanitize,
+      validatePayload,
       updateCompanyById
     );
     this.router.delete(
       '/company/:companyId',
       validateToken,
       isAdmin,
+      companyIdSanitize,
+      validatePayload,
       deleteCompanyById
     );
   }
 }
-
-// create route: requires ADMIN priveleges
-// router.post('/create-company', [
-//     check('name', 'name cannot be empty.').not().isEmpty(),
-//     body('email', 'Please provide a valid email').isEmail().normalizeEmail(),
-// ], validateToken, isAdmin, companyController.createCompany);
-
-// read route: Public APIs
-// router.get('/companies', companyController.getAllCompanies);
-
-// router.get('/company/:id', [
-//     param('id', 'CompanyId is not valid').exists().isInt()
-// ], companyController.getCompanyById);
-
-// router.get('/company/:companyId/employees', [
-//     param('companyId', 'CompanyId is not valid').exists().isInt()
-// ], companyController.getEmployeeByCompanyId);
-
-// // update route: requires ADMIN priveleges
-// router.patch('/company/:id', [
-//     param('id', 'CompanyId is not valid').exists().isInt()
-// ], validateToken, isAdmin, companyController.updateCompany);
-
-// // delete route: requires ADMIN priveleges
-// router.delete('/company/:id',[
-//     param('id', 'CompanyId is not valid').exists().isInt()
-// ], validateToken, isAdmin, companyController.deleteCompanyById);
