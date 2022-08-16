@@ -5,8 +5,11 @@ import { v4 as uuidv4 } from 'uuid';
 import { encryptPassword } from '../utils/securePassword';
 import jwt from 'jsonwebtoken';
 import { Auth } from '../types/custom';
+import { logger } from '../utils/logger';
 
 export const signup = async (req: Request, res: Response) => {
+  logger.info('signup controller started');
+
   const { firstName, lastName, email, password, role } = req.body;
 
   const salt: string = uuidv4();
@@ -40,6 +43,8 @@ export const signup = async (req: Request, res: Response) => {
 };
 
 export const signin = async (req: Request, res: Response) => {
+  logger.info('signin controller ended');
+
   const { email, password } = req.body;
 
   try {

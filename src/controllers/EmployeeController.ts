@@ -2,8 +2,11 @@ import { Request, Response } from 'express';
 import { StatusConstants } from '../constants/StatusConstants';
 import Company from '../models/company.model';
 import Employee from '../models/employee.model';
+import { logger } from '../utils/logger';
 
 export const createEmployee = async (req: Request, res: Response) => {
+  logger.info('createEmployee controller started');
+
   const { companyId, firstName, lastName, email, phone } = req.body;
 
   try {
@@ -40,6 +43,8 @@ export const createEmployee = async (req: Request, res: Response) => {
 };
 
 export const getAllEmployees = async (req: Request, res: Response) => {
+  logger.info('getAllEmployees controller started');
+
   try {
     const employeeList = await Employee.findAll();
     return res.status(StatusConstants.CODE_200).json({ data: employeeList });
@@ -51,6 +56,8 @@ export const getAllEmployees = async (req: Request, res: Response) => {
 };
 
 export const getEmployeeById = async (req: Request, res: Response) => {
+  logger.info('getEmployeeById controller started');
+
   const empId = req.params.employeeId;
 
   try {
@@ -69,6 +76,8 @@ export const getEmployeeById = async (req: Request, res: Response) => {
 };
 
 export const getEmployeeByCompanyId = async (req: Request, res: Response) => {
+  logger.info('getEmployeeByCompanyId controller started');
+
   const cmpId = req.params.companyId;
 
   try {
@@ -90,8 +99,9 @@ export const getEmployeeByCompanyId = async (req: Request, res: Response) => {
   }
 };
 
-// TODO: UPDATE COMPANY ID
 export const updateEmployeeById = async (req: Request, res: Response) => {
+  logger.info('updateEmployeeById controller started');
+
   const empId = req.params.employeeId;
   const { firstName, lastName, email, phone } = req.body;
 
@@ -134,6 +144,8 @@ export const updateEmployeeById = async (req: Request, res: Response) => {
 };
 
 export const deleteEmployeeById = async (req: Request, res: Response) => {
+  logger.info('deleteEmployeeById controller started');
+
   const empId = req.params.employeeId;
 
   try {

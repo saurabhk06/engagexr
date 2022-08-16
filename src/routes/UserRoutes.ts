@@ -1,6 +1,7 @@
 import { Express, Router } from 'express';
 import { ApplicationConstants } from '../constants/ApplicationConstants';
 import { signin, signup } from '../controllers/AuthController';
+import { logger } from '../utils/logger';
 import { AbstractBaseRoute } from './AbstractBaseRoute';
 
 export class UserRoutes extends AbstractBaseRoute {
@@ -9,6 +10,8 @@ export class UserRoutes extends AbstractBaseRoute {
   }
 
   public async routes() {
+    logger.info('Registering user routes');
+
     await this.urlpaths();
     this.app.use(ApplicationConstants.BASE_API_PATH, this.router);
   }

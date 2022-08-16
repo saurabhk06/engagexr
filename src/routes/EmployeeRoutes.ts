@@ -9,6 +9,7 @@ import {
 } from '../controllers/EmployeeController';
 import { isAdmin } from '../middleware/CheckAdminMiddleware';
 import { validateToken } from '../middleware/ValidateTokenMiddlware';
+import { logger } from '../utils/logger';
 import { AbstractBaseRoute } from './AbstractBaseRoute';
 
 export class EmployeeRoutes extends AbstractBaseRoute {
@@ -17,6 +18,8 @@ export class EmployeeRoutes extends AbstractBaseRoute {
   }
 
   public async routes() {
+    logger.info('Registering user routes');
+
     await this.urlpaths();
     this.app.use(this.router);
   }

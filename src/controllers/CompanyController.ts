@@ -1,8 +1,11 @@
 import { Request, Response } from 'express';
 import { StatusConstants } from '../constants/StatusConstants';
 import Company from '../models/company.model';
+import { logger } from '../utils/logger';
 
 export const createCompany = async (req: Request, res: Response) => {
+  logger.info('createCompany controller started');
+
   const { name, email, phone, website } = req.body;
 
   try {
@@ -32,6 +35,8 @@ export const createCompany = async (req: Request, res: Response) => {
 };
 
 export const getAllCompanies = async (req: Request, res: Response) => {
+  logger.info('getAllCompanies controller started');
+
   try {
     const companyList = await Company.findAll();
     return res.status(StatusConstants.CODE_200).json({ data: companyList });
@@ -43,6 +48,8 @@ export const getAllCompanies = async (req: Request, res: Response) => {
 };
 
 export const getCompanyById = async (req: Request, res: Response) => {
+  logger.info('getCompanyById controller started');
+
   const cmpId = req.params.companyId;
 
   try {
@@ -62,6 +69,8 @@ export const getCompanyById = async (req: Request, res: Response) => {
 };
 
 export const updateCompanyById = async (req: Request, res: Response) => {
+  logger.info('updateCompanyById controller started');
+
   const companyId = req.params.companyId;
   const { name, email, phone, website } = req.body;
 
@@ -103,6 +112,8 @@ export const updateCompanyById = async (req: Request, res: Response) => {
 };
 
 export const deleteCompanyById = async (req: Request, res: Response) => {
+  logger.info('deleteCompanyById controller started');
+
   const companyId = req.params.companyId;
 
   try {

@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { ApplicationConstants } from '../constants/ApplicationConstants';
 import { StatusConstants } from '../constants/StatusConstants';
+import { logger } from '../utils/logger';
 
 /**
  * This middleware is used to check if the user is authorised with the ADMIN role.
@@ -11,6 +12,8 @@ import { StatusConstants } from '../constants/StatusConstants';
  * @returns
  */
 export const isAdmin = (req: Request, res: Response, next: NextFunction) => {
+  logger.info('isAdmin middleware started');
+
   const isAuthorised =
     req.auth &&
     req.auth?.role &&

@@ -2,12 +2,15 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { StatusConstants } from '../constants/StatusConstants';
 import { Auth } from '../types/custom';
+import { logger } from '../utils/logger';
 
 export const validateToken = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
+  logger.info('validateToken middleware started');
+
   let token = req.headers.authorization;
   // Check if Authorization header is set or not
   if (!token) {

@@ -2,9 +2,12 @@ import { Express, Router } from 'express';
 import { CompanyRoutes } from '../routes/CompanyRoutes';
 import { EmployeeRoutes } from '../routes/EmployeeRoutes';
 import { UserRoutes } from '../routes/UserRoutes';
+import { logger } from '../utils/logger';
 
 export class InitializeRoutes {
   public static async registerAllRoutes(app: Express, router: Router) {
+    logger.info('Started registering routes');
+
     const userRoutes = new UserRoutes(app, router);
     await userRoutes.routes();
 
@@ -13,5 +16,7 @@ export class InitializeRoutes {
 
     const employeeRoutes = new EmployeeRoutes(app, router);
     await employeeRoutes.routes();
+
+    logger.info('Completed registering routes');
   }
 }
