@@ -57,7 +57,7 @@ Install dependencies
   npm install
 ```
 
-Start the server locally
+Run the server locally in development
 
 ```bash
   npm run dev
@@ -67,6 +67,14 @@ Start the server locally
 
 ```bash
   npm run build
+```
+
+## Start
+
+Run the server after running the build.
+
+```bash
+  npm start
 ```
 
 ## Tech Stack
