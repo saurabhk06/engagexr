@@ -1,0 +1,519 @@
+{
+	"info": {
+		"_postman_id": "92bcf022-4e6d-427d-81c7-1b9619ba670e",
+		"name": "engagexr-apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8201862"
+	},
+	"item": [
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "create-company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlNhdXJhYmgiLCJlbWFpbCI6InNrNzAyMTk5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDYzMDkzNSwiZXhwIjoxNjYwNjM0NTM1fQ.DYiViA-eSnVcYzp2zLvbsHsxPYpktwCooFVrE93BLeo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Damco Group\",\r\n    \"email\": \"info@damco.com\",\r\n    \"phone\": \"+1 234 567 890\",\r\n    \"website\": \"www.damco.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/create-company",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"create-company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCompanies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlNhdXJhYmgiLCJlbWFpbCI6InNrNzAyMTk5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDYzMDkzNSwiZXhwIjoxNjYwNjM0NTM1fQ.DYiViA-eSnVcYzp2zLvbsHsxPYpktwCooFVrE93BLeo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/companies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCompanyById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlNhdXJhYmgiLCJlbWFpbCI6InNrNzAyMTk5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDYzMDkzNSwiZXhwIjoxNjYwNjM0NTM1fQ.DYiViA-eSnVcYzp2zLvbsHsxPYpktwCooFVrE93BLeo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/company/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCompanyById",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlNhdXJhYmgiLCJlbWFpbCI6InNrNzAyMTk5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDYzMDkzNSwiZXhwIjoxNjYwNjM0NTM1fQ.DYiViA-eSnVcYzp2zLvbsHsxPYpktwCooFVrE93BLeo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/company/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"company",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-company",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlNhdXJhYmgiLCJlbWFpbCI6InNrNzAyMTk5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDYzMDkzNSwiZXhwIjoxNjYwNjM0NTM1fQ.DYiViA-eSnVcYzp2zLvbsHsxPYpktwCooFVrE93BLeo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"NSF International, NY\",\r\n    \"email\": \"info@nsf.org\",\r\n    \"phone\": \"+1 234 567 999\",\r\n    \"website\": \"www.nsfny.org\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/company/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "employee",
+			"item": [
+				{
+					"name": "create-employee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlNhdXJhYmgiLCJlbWFpbCI6InNrNzAyMTk5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDYzMDkzNSwiZXhwIjoxNjYwNjM0NTM1fQ.DYiViA-eSnVcYzp2zLvbsHsxPYpktwCooFVrE93BLeo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyId\": 3,\r\n    \"firstName\": \"Pankaj\",\r\n    \"lastName\": \"Kumar\",\r\n    \"email\": \"pankaj@nsf.org\",\r\n    \"phone\": \"+91 12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/create-employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"create-employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-employee",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlNhdXJhYmgiLCJlbWFpbCI6InNrNzAyMTk5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDYzMDkzNSwiZXhwIjoxNjYwNjM0NTM1fQ.DYiViA-eSnVcYzp2zLvbsHsxPYpktwCooFVrE93BLeo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Saurabh\",\r\n    \"lastName\": \"Kumar\",\r\n    \"email\": \"saurabh@damcogroup.com\",\r\n    \"phone\": \"+91 123456078\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/employee/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllEmployees",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlNhdXJhYmgiLCJlbWFpbCI6InNrNzAyMTk5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDYzMDkzNSwiZXhwIjoxNjYwNjM0NTM1fQ.DYiViA-eSnVcYzp2zLvbsHsxPYpktwCooFVrE93BLeo",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyId\": 4,\r\n    \"firstName\": \"Sam\",\r\n    \"lastName\": \"Kumar\",\r\n    \"email\": \"saurabh@damco.com\",\r\n    \"phone\": \"+91 12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEmployeeById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlNhdXJhYmgiLCJlbWFpbCI6InNrNzAyMTk5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDYzMDkzNSwiZXhwIjoxNjYwNjM0NTM1fQ.DYiViA-eSnVcYzp2zLvbsHsxPYpktwCooFVrE93BLeo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/employee/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEmployeeByCompanyId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlNhdXJhYmgiLCJlbWFpbCI6InNrNzAyMTk5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDYzMDkzNSwiZXhwIjoxNjYwNjM0NTM1fQ.DYiViA-eSnVcYzp2zLvbsHsxPYpktwCooFVrE93BLeo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/company/3/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"company",
+								"3",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEmployeeById",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlNhdXJhYmgiLCJlbWFpbCI6InNrNzAyMTk5QGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDYzMDkzNSwiZXhwIjoxNjYwNjM0NTM1fQ.DYiViA-eSnVcYzp2zLvbsHsxPYpktwCooFVrE93BLeo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/employee/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Saurabh\",\r\n    \"lastName\": \"Kumar\",\r\n    \"email\": \"sk702199@gmail.com\",\r\n    \"password\": \"12345\",\r\n    \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"sk702199@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

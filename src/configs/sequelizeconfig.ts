@@ -9,5 +9,5 @@ export const sequelize = new Sequelize({
   username: 'root',
   password: 'damco06',
   storage: ':memory:',
-  models: [__dirname + '/../models'], // or [Player, Team],
+  models: [__dirname + '/../models'],
 });
