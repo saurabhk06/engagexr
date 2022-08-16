@@ -12,9 +12,8 @@ import { logger } from '../utils/logger';
  *
  * @param req
  * @param res
- * @returns
  */
-export const signup = async (req: Request, res: Response) => {
+export const signUp = async (req: Request, res: Response) => {
   logger.info('signup controller started');
 
   const { firstName, lastName, email, password, role } = req.body;
@@ -54,9 +53,8 @@ export const signup = async (req: Request, res: Response) => {
  *
  * @param req
  * @param res
- * @returns
  */
-export const signin = async (req: Request, res: Response) => {
+export const signIn = async (req: Request, res: Response) => {
   logger.info('signin controller ended');
 
   const { email, password } = req.body;

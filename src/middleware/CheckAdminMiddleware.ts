@@ -9,7 +9,6 @@ import { logger } from '../utils/logger';
  * @param {*} req
  * @param {*} res
  * @param {*} next
- * @returns
  */
 export const isAdmin = (req: Request, res: Response, next: NextFunction) => {
   logger.info('isAdmin middleware started');

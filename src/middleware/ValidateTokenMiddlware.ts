@@ -10,7 +10,6 @@ import { logger } from '../utils/logger';
  * @param req
  * @param res
  * @param next
- * @returns
  */
 export const validateToken = (
   req: Request,

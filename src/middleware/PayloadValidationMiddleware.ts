@@ -6,7 +6,6 @@ import { validationResult } from 'express-validator';
  * @param req
  * @param res
  * @param next
- * @returns
  */
 export const validatePayload = async (
   req: Request,

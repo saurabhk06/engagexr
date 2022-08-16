@@ -3,18 +3,18 @@
  * and other server related configuration.
  */
 import express, { Express, Router } from 'express';
-import * as ServerConfig from '../configs/ServerConfig.json';
 import { InitializeSequelize } from './InitializeSequelize';
 import { InitializeMiddleware } from './InitializeMiddleware';
 import { InitializeRoutes } from './InitializeRoutes';
 import { logger } from '../utils/logger';
+import { local } from '../configs/ServerConfig';
 
 export async function server() {
   const app: Express = express();
   const router: Router = express.Router();
 
-  const host: string = ServerConfig.host;
-  const port: number = ServerConfig.port;
+  const host: string = local.host;
+  const port: number = local.port;
 
   //Initialize common & built in middlewares
   await InitializeMiddleware.InitializeCommonMiddleware(app);

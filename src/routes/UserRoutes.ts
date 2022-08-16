@@ -1,6 +1,6 @@
 import { Express, Router } from 'express';
 import { ApplicationConstants } from '../constants/ApplicationConstants';
-import { signin, signup } from '../controllers/AuthController';
+import { signIn, signUp } from '../controllers/AuthController';
 import { validatePayload } from '../middleware/PayloadValidationMiddleware';
 import { logger } from '../utils/logger';
 import { signinSanitize, signupSanitize } from '../utils/payloadSanitization';
@@ -22,7 +22,7 @@ export class UserRoutes extends AbstractBaseRoute {
   }
 
   public async urlpaths() {
-    this.router.post('/signup', signupSanitize, validatePayload, signup);
-    this.router.post('/signin', signinSanitize, validatePayload, signin);
+    this.router.post('/signup', signupSanitize, validatePayload, signUp);
+    this.router.post('/signin', signinSanitize, validatePayload, signIn);
   }
 }

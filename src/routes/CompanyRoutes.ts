@@ -37,7 +37,6 @@ export class CompanyRoutes extends AbstractBaseRoute {
     this.router.post(
       '/create-company',
       validateToken,
-      [check('name', 'name cannot be empty.').not().isEmpty()],
       isAdmin,
       createCompanySanitize,
       validatePayload,
