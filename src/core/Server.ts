@@ -1,6 +1,6 @@
 /**
  * This file is used for Server configuration which includes initializing middlewares, initializing routes
- * and out server related configuration.
+ * and other server related configuration.
  */
 import express, { Express, Router } from 'express';
 import * as ServerConfig from '../configs/ServerConfig.json';
@@ -9,7 +9,6 @@ import { InitializeMiddleware } from './InitializeMiddleware';
 import { InitializeRoutes } from './InitializeRoutes';
 import { logger } from '../utils/logger';
 
-//TODO: import port from .env file(configure for prod, staging & local)
 export async function server() {
   const app: Express = express();
   const router: Router = express.Router();

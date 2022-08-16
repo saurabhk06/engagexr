@@ -4,6 +4,9 @@ import { EmployeeRoutes } from '../routes/EmployeeRoutes';
 import { UserRoutes } from '../routes/UserRoutes';
 import { logger } from '../utils/logger';
 
+/**
+ * This class is used to initialize all the routes.
+ */
 export class InitializeRoutes {
   public static async registerAllRoutes(app: Express, router: Router) {
     logger.info('Started registering routes');

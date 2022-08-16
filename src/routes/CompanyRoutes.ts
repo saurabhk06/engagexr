@@ -18,6 +18,9 @@ import {
 } from '../utils/payloadSanitization';
 import { AbstractBaseRoute } from './AbstractBaseRoute';
 
+/**
+ * This class register all the Company routes.
+ */
 export class CompanyRoutes extends AbstractBaseRoute {
   constructor(_app: Express, _router: Router) {
     super(_app, _router);

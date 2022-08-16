@@ -1,6 +1,9 @@
 import { sequelize } from '../configs/sequelizeconfig';
 import { logger } from '../utils/logger';
 
+/**
+ * This class is used to initialize the sequelize connection.
+ */
 export class InitializeSequelize {
   public static async connect() {
     try {

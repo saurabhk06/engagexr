@@ -1,6 +1,10 @@
 import express, { Express } from 'express';
 import cors from 'cors';
 
+/**
+ * This class is used to initialize all the common middleware
+ * use in the application.
+ */
 export class CommonMiddleware {
   app: Express;
 

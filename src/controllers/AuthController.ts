@@ -7,6 +7,13 @@ import jwt from 'jsonwebtoken';
 import { Auth } from '../types/custom';
 import { logger } from '../utils/logger';
 
+/**
+ * This controller is used to do signup.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const signup = async (req: Request, res: Response) => {
   logger.info('signup controller started');
 
@@ -42,6 +49,13 @@ export const signup = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * This method is used to perform sigin operation.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const signin = async (req: Request, res: Response) => {
   logger.info('signin controller ended');
 

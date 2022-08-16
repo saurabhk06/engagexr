@@ -3,6 +3,13 @@ import { StatusConstants } from '../constants/StatusConstants';
 import Company from '../models/company.model';
 import { logger } from '../utils/logger';
 
+/**
+ * This method is used to create company in the DB.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const createCompany = async (req: Request, res: Response) => {
   logger.info('createCompany controller started');
 
@@ -34,6 +41,13 @@ export const createCompany = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * This method is used to get all the companies.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const getAllCompanies = async (req: Request, res: Response) => {
   logger.info('getAllCompanies controller started');
 
@@ -47,6 +61,13 @@ export const getAllCompanies = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * This method is used to get the company details based on the company id.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const getCompanyById = async (req: Request, res: Response) => {
   logger.info('getCompanyById controller started');
 
@@ -68,6 +89,13 @@ export const getCompanyById = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * This method is used to update the company details based on the company id.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const updateCompanyById = async (req: Request, res: Response) => {
   logger.info('updateCompanyById controller started');
 
@@ -111,6 +139,13 @@ export const updateCompanyById = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * This method is used to delete the company details based on the company id.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const deleteCompanyById = async (req: Request, res: Response) => {
   logger.info('deleteCompanyById controller started');
 

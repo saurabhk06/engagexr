@@ -1,5 +1,8 @@
 import { Sequelize } from 'sequelize-typescript';
 
+/**
+ * This method generates the sequelize instance to use.
+ */
 export const sequelize = new Sequelize({
   database: 'engagexrtestdb',
   dialect: 'mysql',

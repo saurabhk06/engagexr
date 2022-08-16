@@ -4,6 +4,14 @@ import { StatusConstants } from '../constants/StatusConstants';
 import { Auth } from '../types/custom';
 import { logger } from '../utils/logger';
 
+/**
+ * This middleware is used to do token validation.
+ *
+ * @param req
+ * @param res
+ * @param next
+ * @returns
+ */
 export const validateToken = (
   req: Request,
   res: Response,

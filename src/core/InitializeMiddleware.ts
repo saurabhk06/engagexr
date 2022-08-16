@@ -3,6 +3,9 @@ import { CommonMiddleware } from '../middleware/CommonMiddleware';
 import { ErrorHandlingMiddleware } from '../middleware/ErrorHandlingMiddleware';
 import { logger } from '../utils/logger';
 
+/**
+ * This class is used to initialize all the middleware.
+ */
 export class InitializeMiddleware {
   public static async InitializeCommonMiddleware(app: Express) {
     logger.info('Started initializing common middleware');
@@ -22,7 +25,6 @@ export class InitializeMiddleware {
     const errorMiddleware = new ErrorHandlingMiddleware(app);
 
     await errorMiddleware.handle404Error();
-    await errorMiddleware.registerTokenErrorHandler();
 
     logger.info('Completed initializing error handling middleware');
   }

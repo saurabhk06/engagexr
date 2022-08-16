@@ -4,6 +4,13 @@ import Company from '../models/company.model';
 import Employee from '../models/employee.model';
 import { logger } from '../utils/logger';
 
+/**
+ * This method is used to create the employee record in the db.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const createEmployee = async (req: Request, res: Response) => {
   logger.info('createEmployee controller started');
 
@@ -42,6 +49,13 @@ export const createEmployee = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * This method is used to get all the employee details.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const getAllEmployees = async (req: Request, res: Response) => {
   logger.info('getAllEmployees controller started');
 
@@ -55,6 +69,13 @@ export const getAllEmployees = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * This method is used to get the employee details based on the employee id.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const getEmployeeById = async (req: Request, res: Response) => {
   logger.info('getEmployeeById controller started');
 
@@ -75,6 +96,13 @@ export const getEmployeeById = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * This method is used to get the employee details based on the company id.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const getEmployeeByCompanyId = async (req: Request, res: Response) => {
   logger.info('getEmployeeByCompanyId controller started');
 
@@ -99,6 +127,13 @@ export const getEmployeeByCompanyId = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * This method is used to udpate the employee details based on the employee id.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const updateEmployeeById = async (req: Request, res: Response) => {
   logger.info('updateEmployeeById controller started');
 
@@ -143,6 +178,13 @@ export const updateEmployeeById = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * This method is used to delete the employee details based on the employee id.
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export const deleteEmployeeById = async (req: Request, res: Response) => {
   logger.info('deleteEmployeeById controller started');
 

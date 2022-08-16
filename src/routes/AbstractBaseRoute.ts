@@ -1,5 +1,8 @@
 import { Express, Router } from 'express';
 
+/**
+ * This is the base class for the routes.
+ */
 export abstract class AbstractBaseRoute {
   app: Express;
   router: Router;

@@ -1,7 +1,11 @@
-import { ErrorRequestHandler, Express } from 'express';
+import { Express } from 'express';
 import { Response, Request } from 'express';
 import { StatusConstants } from '../constants/StatusConstants';
 
+/**
+ * This class is use to register the error handling middleware
+ * like 404 Error midleware
+ */
 export class ErrorHandlingMiddleware {
   app: Express;
 
@@ -16,23 +20,4 @@ export class ErrorHandlingMiddleware {
       });
     });
   }
-
-  public async registerTokenErrorHandler() {
-    this.app.use(this.tokeErrorHandler);
-  }
-
-  private tokeErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
-    console.log(err);
-    if (
-      err.name === 'UnauthorizedError' ||
-      err.name === 'TokenExpiredError' ||
-      err.name === 'JsonWebTokenError'
-    ) {
-      res.status(StatusConstants.CODE_401).json({
-        error: 'Please provide a valid token. Try again!!!',
-      });
-    } else {
-      next(err);
-    }
-  };
 }
